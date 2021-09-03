@@ -9,9 +9,9 @@ public class StringOps {
         //printChars(str);
         //printSubstring(str);
 
-        System.out.println(isPalindrome(str));
+        //System.out.println(isPalindrome(str));
 
-        //System.out.println(countPalidromeSubstrings(str));
+        System.out.println(countPalindromicSubstrings(str));
     }
 
     //TODO: print characters of String
@@ -55,7 +55,7 @@ public class StringOps {
     /*
     * Time Complexity: O(n*n*n)
     */
-    public static int countPalidromeSubstrings(String str) {
+    public static int countPalindromeSubstrings(String str) {
         int count = 0;
 
 //        for (int i = 0; i < str.length(); i++) {
@@ -67,6 +67,41 @@ public class StringOps {
 //            }
 //        }
 
+        return count;
+    }
+
+    //TODO: count palindromic substrings
+    /*
+    *
+    * Count odd and even length palindromic substrings
+    *
+    * Time Complexity: O(n*n)
+    *
+    */
+
+    public static int countPalindromicSubstrings(String str) {
+        int count = 0;
+
+
+        // Odd length Palindromic Substrings
+        for (int axis = 0; axis < str.length(); axis++) {
+            for (int orbit = 0; axis - orbit >= 0 && axis + orbit < str.length(); orbit++) {
+                if(str.charAt(axis - orbit) == str.charAt(axis + orbit))
+                    count++;
+                else
+                    break;
+            }
+        }
+
+        // Even length Palindromic Substrings
+        for (double axis = 0.5; axis < str.length(); axis++) {
+            for (double orbit = 0.5; axis - orbit >= 0 && axis + orbit < str.length(); orbit++) {
+                if(str.charAt((int) (axis - orbit)) == str.charAt((int) (axis + orbit)))
+                    count++;
+                else
+                    break;
+            }
+        }
         return count;
     }
 }
