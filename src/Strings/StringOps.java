@@ -9,9 +9,9 @@ public class StringOps {
         //printChars(str);
         //printSubstring(str);
 
-        //System.out.println(isPalindrome(str));
+        System.out.println(isPalindrome(str));
 
-        System.out.println(countPalidromeSubstrings(str));
+        //System.out.println(countPalidromeSubstrings(str));
     }
 
     //TODO: print characters of String
@@ -22,6 +22,12 @@ public class StringOps {
     }
 
     //TODO: print all substrings of a given string
+    /*
+    * Time Complexity: O(n*n*n)
+    * if we find the no of substrings than they would be n^2
+    * but because substring fn has its own time complexity of n
+    * so it becomes n^3
+    */
     public static void printSubstring(String str) {
         for (int i = 0; i < str.length(); i++) {
             for (int j = i+1; j <= str.length(); j++) {
@@ -46,16 +52,21 @@ public class StringOps {
     }
 
     //TODO: count no of palindrome substrings or not
+    /*
+    * Time Complexity: O(n*n*n)
+    */
     public static int countPalidromeSubstrings(String str) {
         int count = 0;
 
-        for (int i = 0; i < str.length(); i++) {
-            for (int j = i+1; j <= str.length(); j++) {
-                if (isPalindrome(str.substring(i, j))) {
-                    count++;
-                }
-            }
-        }
+//        for (int i = 0; i < str.length(); i++) {
+//            for (int j = i+1; j <= str.length(); j++) {
+//                    String ss = str.substring(i, j);
+//                if (isPalindrome(ss)) {
+//                    count++;
+//                }
+//            }
+//        }
+
         return count;
     }
 }
